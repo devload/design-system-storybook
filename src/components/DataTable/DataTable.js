@@ -1,8 +1,9 @@
 import './DataTable.css';
-import '../Badge/Badge.css';
 import '../Toolbar/Toolbar.css';
 import '../TaskList/TaskList.css';
 import { createToolbar } from '../Toolbar/Toolbar.js';
+import { createContentHeader } from '../ContentHeader/ContentHeader.js';
+import { createStatusBadge } from '../StatusBadge/StatusBadge.js';
 
 const sampleData = [
   { id: 1, title: '2017 명함 주문요청', requester: '김광욱', type: '신청', status: '진행중', dday: 'D-day', date: '2017.09.01', dueDate: '2017.09.01' },
@@ -23,58 +24,57 @@ export const createDataTable = ({ title = '페이지명' } = {}) => {
   const el = document.createElement('section');
   el.className = 'data-table-section';
 
-  // Header
-  const headerEl = document.createElement('div');
-  headerEl.className = 'content-header';
-  headerEl.innerHTML = `
-    <h1 class="content-title">${title}</h1>
-    <div class="content-counter">
-      <strong>${sampleData.length}</strong> / 450
-      <button class="reload-btn" aria-label="새로고침">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-      </button>
-    </div>
-  `;
-  el.appendChild(headerEl);
+  // Header (extracted component)
+  el.appendChild(createContentHeader({ title, current: sampleData.length, total: 450 }));
   el.appendChild(createToolbar());
 
   // Table
   const wrapperEl = document.createElement('div');
   wrapperEl.className = 'data-table-wrapper';
-  wrapperEl.innerHTML = `
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th style="width:40px"><input type="checkbox" aria-label="전체 선택"></th>
-          <th>제목</th>
-          <th>요청자</th>
-          <th>분류</th>
-          <th>상태</th>
-          <th>D-Day</th>
-          <th>요청일</th>
-          <th>마감일</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${sampleData.map(row => {
-          const statusClass = row.status === '진행중' ? 'progress' : row.status === '보류' ? 'hold' : 'complete';
-          const ddayClass = (row.dday === 'D-day' || row.dday === 'D-1') ? 'color:var(--danger);font-weight:700' : '';
-          return `
-            <tr data-id="${row.id}">
-              <td><input type="checkbox" aria-label="선택"></td>
-              <td class="title-cell">${row.title}</td>
-              <td>${row.requester}</td>
-              <td>${row.type}</td>
-              <td><span class="status-badge ${statusClass}">${row.status}</span></td>
-              <td style="${ddayClass}">${row.dday}</td>
-              <td>${row.date}</td>
-              <td>${row.dueDate}</td>
-            </tr>
-          `;
-        }).join('')}
-      </tbody>
-    </table>
+
+  const table = document.createElement('table');
+  table.className = 'data-table';
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th style="width:40px"><input type="checkbox" aria-label="전체 선택"></th>
+        <th>제목</th>
+        <th>요청자</th>
+        <th>분류</th>
+        <th>상태</th>
+        <th>D-Day</th>
+        <th>요청일</th>
+        <th>마감일</th>
+      </tr>
+    </thead>
   `;
+
+  const tbody = document.createElement('tbody');
+  sampleData.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.dataset.id = row.id;
+    const ddayStyle = (row.dday === 'D-day' || row.dday === 'D-1') ? 'color:var(--danger);font-weight:700' : '';
+    const statusMap = { '진행중': 'progress', '보류': 'hold', '완료': 'complete' };
+
+    tr.innerHTML = `
+      <td><input type="checkbox" aria-label="선택"></td>
+      <td class="title-cell">${row.title}</td>
+      <td>${row.requester}</td>
+      <td>${row.type}</td>
+      <td></td>
+      <td style="${ddayStyle}">${row.dday}</td>
+      <td>${row.date}</td>
+      <td>${row.dueDate}</td>
+    `;
+
+    // Insert StatusBadge component into status cell
+    const statusCell = tr.querySelectorAll('td')[4];
+    statusCell.appendChild(createStatusBadge({ label: row.status, status: statusMap[row.status] || 'progress' }));
+
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  wrapperEl.appendChild(table);
   el.appendChild(wrapperEl);
 
   // Pagination

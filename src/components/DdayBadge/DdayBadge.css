@@ -1,0 +1,10 @@
+/* ===== DdayBadge ===== */
+.dday-badge {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.dday-badge.urgent {
+  color: var(--danger);
+  font-weight: 700;
+}

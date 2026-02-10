@@ -1,0 +1,29 @@
+/* ===== Nav Menu Item ===== */
+.nav-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px 6px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: all 0.1s;
+}
+.nav-menu-item:hover {
+  background: var(--bg-light);
+  color: var(--text-primary);
+}
+.nav-menu-item.active {
+  color: var(--primary);
+  font-weight: 600;
+  background: #E6F4FF;
+}
+.nav-menu-item__count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 600;
+}
+.nav-menu-item__count--danger {
+  color: var(--danger);
+}

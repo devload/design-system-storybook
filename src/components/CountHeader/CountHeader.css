@@ -1,0 +1,9 @@
+/* ===== CountHeader ===== */
+.count-header {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.count-header__value {
+  color: var(--primary);
+  font-weight: 600;
+}

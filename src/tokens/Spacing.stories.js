@@ -46,6 +46,40 @@ export const LayoutTokens = {
   },
 };
 
+export const SpacingScale = {
+  render: () => {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'padding:24px;max-width:600px';
+
+    const spacings = [
+      { token: '--spacing-1', value: '4px', desc: '아이콘 간격, 미세 조정' },
+      { token: '--spacing-2', value: '8px', desc: '인라인 요소 간격, 태그 갭' },
+      { token: '--spacing-3', value: '12px', desc: '리스트 항목 패딩, 작은 여백' },
+      { token: '--spacing-4', value: '16px', desc: '섹션 패딩, 카드 내부 여백' },
+      { token: '--spacing-5', value: '20px', desc: '콘텐츠 좌우 패딩' },
+      { token: '--spacing-6', value: '24px', desc: '섹션 간 간격, 그리드 갭' },
+      { token: '--spacing-8', value: '32px', desc: '큰 섹션 간격' },
+      { token: '--spacing-10', value: '40px', desc: '페이지 상하 여백' },
+      { token: '--spacing-12', value: '48px', desc: '최대 여백' },
+    ];
+
+    wrap.innerHTML = `
+      <h3 style="font-size:14px;font-weight:700;color:#3D3D3D;margin-bottom:16px">간격 스케일 (4px 기반)</h3>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${spacings.map(s => `
+          <div style="display:flex;align-items:center;gap:12px;padding:4px 0">
+            <code style="font-size:11px;color:#4096FF;min-width:110px">${s.token}</code>
+            <div style="width:${s.value};height:16px;background:#4096FF;border-radius:2px;flex-shrink:0"></div>
+            <span style="font-size:12px;font-weight:600;min-width:36px">${s.value}</span>
+            <span style="font-size:11px;color:#94A3B8">${s.desc}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    return wrap;
+  },
+};
+
 export const LayoutDiagram = {
   render: () => {
     const wrap = document.createElement('div');

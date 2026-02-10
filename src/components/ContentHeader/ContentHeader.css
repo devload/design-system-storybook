@@ -1,0 +1,36 @@
+/* ===== Content Header ===== */
+.content-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px 12px;
+}
+.content-header__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+}
+.content-header__counter {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.content-header__counter strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+.content-header__reload {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 4px;
+}
+.content-header__reload:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}

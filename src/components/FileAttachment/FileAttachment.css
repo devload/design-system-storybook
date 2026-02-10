@@ -1,0 +1,16 @@
+/* ===== FileAttachment ===== */
+.file-attachment {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 13px;
+}
+.file-attachment:hover { text-decoration: underline; }
+.file-attachment__icon { flex-shrink: 0; }
+.file-attachment__icon svg { width: 14px; height: 14px; }
+.file-attachment__size {
+  color: var(--text-muted);
+  font-size: 12px;
+}

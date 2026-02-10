@@ -1,0 +1,25 @@
+/* ===== FieldRow ===== */
+.field-row {
+  margin-bottom: 12px;
+}
+.field-row__label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.field-row__value {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.field-row--horizontal {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.field-row--horizontal .field-row__label {
+  flex-shrink: 0;
+  min-width: 80px;
+  margin-bottom: 0;
+}

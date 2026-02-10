@@ -1,25 +1,6 @@
 import './Badge.css';
+import { createTag } from '../Tag/Tag.js';
+import { createStatusBadge as _createStatusBadge } from '../StatusBadge/StatusBadge.js';
 
-/**
- * @param {Object} props
- * @param {string} props.label
- * @param {'urgent'|'security'|'info'|'success'} [props.variant]
- */
-export const createBadge = ({ label = '긴급', variant = 'urgent' } = {}) => {
-  const el = document.createElement('span');
-  el.className = `tag tag-${variant}`;
-  el.textContent = label;
-  return el;
-};
-
-/**
- * @param {Object} props
- * @param {string} props.label
- * @param {'progress'|'hold'|'complete'} [props.status]
- */
-export const createStatusBadge = ({ label = '진행중', status = 'progress' } = {}) => {
-  const el = document.createElement('span');
-  el.className = `status-badge ${status}`;
-  el.textContent = label;
-  return el;
-};
+export const createBadge = createTag;
+export const createStatusBadge = _createStatusBadge;

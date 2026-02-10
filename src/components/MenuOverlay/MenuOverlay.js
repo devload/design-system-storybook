@@ -1,4 +1,6 @@
 import './MenuOverlay.css';
+import { createMenuGridItem } from '../MenuGridItem/MenuGridItem.js';
+import { createProfileCard } from '../ProfileCard/ProfileCard.js';
 
 const menuItems = [
   { label: '메일', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
@@ -28,38 +30,36 @@ export const createMenuOverlay = ({ variant = 'desktop' } = {}) => {
 
   const logoSvg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="4" fill="#F5A623"/><circle cx="12" cy="3" r="2" fill="#F5A623"/><circle cx="12" cy="21" r="2" fill="#F5A623"/><circle cx="3" cy="12" r="2" fill="#F5A623"/><circle cx="21" cy="12" r="2" fill="#F5A623"/></svg>';
 
-  const menuGridHtml = menuItems.map(item => `
-    <div class="menu-grid-item">
-      <div class="menu-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${item.icon}</svg>
-      </div>
-      <span class="menu-label">${item.label}</span>
-    </div>
-  `).join('');
+  // Build menu grid using MenuGridItem components
+  const menuGrid = document.createElement('div');
+  menuGrid.className = 'menu-grid';
+  menuGrid.style.gridTemplateColumns = variant === 'mobile' ? 'repeat(4, 1fr)' : 'repeat(6, 1fr)';
+  if (variant !== 'mobile') {
+    menuGrid.style.maxWidth = '800px';
+    menuGrid.style.margin = '0 auto';
+  }
+  menuItems.forEach(item => {
+    menuGrid.appendChild(createMenuGridItem({ label: item.label, icon: item.icon }));
+  });
 
   if (variant === 'mobile') {
-    el.innerHTML = `
-      <div class="menu-overlay-header">
-        <div class="logo">${logoSvg} 메뉴타이틀</div>
-        <button class="menu-overlay-close" aria-label="닫기">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-      <div class="menu-overlay-profile">
-        <div class="menu-profile-avatar">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="#8B7355"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/></svg>
-        </div>
-        <div class="menu-profile-name">고윤정</div>
-        <div class="menu-profile-dept">사업 · 디자인디자인팀 | system</div>
-        <div class="menu-profile-actions">
-          <button>프로필 보기</button>
-          <button>로그아웃</button>
-        </div>
-      </div>
-      <div class="menu-grid" style="grid-template-columns:repeat(4, 1fr);">
-        ${menuGridHtml}
-      </div>
+    const header = document.createElement('div');
+    header.className = 'menu-overlay-header';
+    header.innerHTML = `
+      <div class="logo">${logoSvg} 메뉴타이틀</div>
+      <button class="menu-overlay-close" aria-label="닫기">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     `;
+    el.appendChild(header);
+
+    // Profile card (extracted component)
+    el.appendChild(createProfileCard({
+      name: '고윤정',
+      department: '사업 · 디자인디자인팀 | system',
+    }));
+
+    el.appendChild(menuGrid);
   } else {
     el.innerHTML = `
       <div class="menu-overlay-header">
@@ -77,10 +77,8 @@ export const createMenuOverlay = ({ variant = 'desktop' } = {}) => {
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
-      <div class="menu-grid" style="grid-template-columns:repeat(6, 1fr);max-width:800px;margin:0 auto;">
-        ${menuGridHtml}
-      </div>
     `;
+    el.appendChild(menuGrid);
   }
 
   return el;

@@ -1,0 +1,27 @@
+/* ===== Menu Grid Item ===== */
+.menu-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.menu-grid-item:hover { background: rgba(255,255,255,0.08); }
+.menu-grid-item__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-grid-item__icon svg { width: 22px; height: 22px; color: #fff; }
+.menu-grid-item__label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}

@@ -1,0 +1,21 @@
+/* ===== IconButton ===== */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  border-radius: var(--radius-md, 4px);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.icon-button:hover { color: var(--primary); }
+
+.icon-button--sm { width: 24px; height: 24px; }
+.icon-button--md { width: 28px; height: 28px; }
+.icon-button--lg { width: 32px; height: 32px; }
+
+.icon-button--ghost:hover { background: var(--primary-light); }
+.icon-button--outlined { border: 1px solid var(--border); }
+.icon-button--outlined:hover { border-color: var(--primary); }

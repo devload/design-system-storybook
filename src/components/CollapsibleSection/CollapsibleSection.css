@@ -1,0 +1,57 @@
+/* ===== Collapsible Section ===== */
+.collapsible-section {
+  padding: 0 16px;
+  margin-bottom: 4px;
+}
+.collapsible-section__header {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  user-select: none;
+}
+.collapsible-section__toggle {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+  color: var(--text-muted);
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+.collapsible-section__header.collapsed .collapsible-section__toggle {
+  transform: rotate(-90deg);
+}
+.collapsible-section__title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+.collapsible-section__actions {
+  display: flex;
+  gap: 4px;
+}
+.collapsible-section__action-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 4px;
+}
+.collapsible-section__action-btn:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+.collapsible-section__body {
+  overflow: hidden;
+  transition: max-height 0.2s;
+}
+.collapsible-section__header.collapsed + .collapsible-section__body {
+  max-height: 0 !important;
+  overflow: hidden;
+}
