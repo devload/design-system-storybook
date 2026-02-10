@@ -1,0 +1,58 @@
+/* ===== Timeline ===== */
+.timeline {}
+.tl-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 0;
+  position: relative;
+  min-width: 0;
+}
+.tl-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 26px;
+  bottom: -6px;
+  width: 1px;
+  background: var(--border);
+}
+.tl-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: var(--bg-white);
+  flex-shrink: 0;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.tl-dot.filled {
+  background: var(--primary);
+}
+.tl-dot.danger {
+  border-color: var(--danger);
+}
+.tl-dot.danger.filled {
+  background: var(--danger);
+}
+.tl-dot.success {
+  border-color: var(--success);
+}
+.tl-dot.success.filled {
+  background: var(--success);
+}
+.tl-text {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  min-width: 0;
+  word-break: keep-all;
+}
+.tl-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-left: 6px;
+  flex-shrink: 0;
+}

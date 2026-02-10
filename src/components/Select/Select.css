@@ -1,0 +1,49 @@
+/* ===== Select ===== */
+.select-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.select-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.select-field {
+  width: 100%;
+  padding: 8px 28px 8px 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: border-color 0.15s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+.select-field:hover {
+  border-color: #ccc;
+}
+.select-field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+.select-field:disabled {
+  background-color: var(--bg-light);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.select-field.select-sm {
+  padding: 4px 22px 4px 8px;
+  font-size: 12px;
+}
+.select-field.select-lg {
+  padding: 10px 32px 10px 12px;
+  font-size: 14px;
+}

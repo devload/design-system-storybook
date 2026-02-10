@@ -1,0 +1,58 @@
+/* ===== Card ===== */
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card-body {
+  padding: 16px;
+}
+.card-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-header-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+.card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-comment {
+  padding: 12px;
+  background: var(--bg-light);
+  border-radius: 8px;
+}
+.card-comment + .card-comment {
+  margin-top: 8px;
+}
+.card-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.card-comment-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.card-comment-date {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.card-comment-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

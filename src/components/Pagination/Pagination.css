@@ -1,0 +1,54 @@
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pagination .pg-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg-white);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.pagination .pg-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.pagination .pg-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.pagination .pg-btn.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+.pagination .pg-info {
+  margin-left: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pagination .pg-info input {
+  width: 32px;
+  height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  text-align: center;
+  font-size: 12px;
+  outline: none;
+}
+.pagination .pg-info input:focus {
+  border-color: var(--primary);
+}
