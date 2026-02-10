@@ -1,0 +1,41 @@
+/* ===== HANDYSOFT Design Tokens ===== */
+:root {
+  /* Primary */
+  --primary: #4096FF;
+  --primary-light: #E6F4FF;
+  --primary-dark: #2E85FF;
+
+  /* Status */
+  --danger: #E74C3C;
+  --danger-bg: #E74C3C;
+  --warning: #F5A623;
+  --warning-bg: #F5A623;
+  --success: #27AE60;
+
+  /* Text */
+  --text-primary: #3D3D3D;
+  --text-secondary: #5D5D5D;
+  --text-muted: #94A3B8;
+
+  /* Border */
+  --border: #EBEBEB;
+  --border-light: #F0F0F0;
+
+  /* Background */
+  --bg-white: #fff;
+  --bg-light: #F8FAFC;
+  --bg-sidebar: #fff;
+
+  /* GNB */
+  --gbn-text: #5B628A;
+  --header-bg: #2A3046;
+
+  /* Layout sizes */
+  --icon-sidebar-width: 66px;
+  --left-panel-width: 230px;
+  --detail-panel-width: 360px;
+  --header-height: 56px;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', '맑은 고딕', 'Segoe UI', Roboto, sans-serif;
+}

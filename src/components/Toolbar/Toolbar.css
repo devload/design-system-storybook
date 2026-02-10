@@ -1,0 +1,85 @@
+/* ===== Toolbar ===== */
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 10px;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.toolbar::-webkit-scrollbar { height: 0; }
+.toolbar-check {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.toolbar-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+.toolbar-btn {
+  padding: 4px 7px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-white);
+  white-space: nowrap;
+  transition: all 0.1s;
+  flex-shrink: 0;
+}
+.toolbar-btn:hover { background: var(--bg-light); border-color: #ccc; }
+.toolbar-btn.active { color: var(--primary); border-color: var(--primary); background: var(--primary-light); }
+.toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+.toolbar-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+.toolbar-select {
+  padding: 4px 22px 4px 8px;
+  font-size: 12px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-white);
+  color: var(--text-secondary);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  outline: none;
+}
+.toolbar-select:hover { border-color: #ccc; }
+.view-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.view-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 4px;
+}
+.view-btn:hover { color: var(--primary); }
+.view-btn.active { color: var(--primary); border-color: var(--primary); background: var(--primary-light); }

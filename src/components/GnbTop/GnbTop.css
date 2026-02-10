@@ -1,0 +1,28 @@
+/* ===== GNB Top (Horizontal Navigation) ===== */
+.gnb-top {
+  display: flex;
+  align-items: center;
+  background: var(--header-bg);
+  padding: 0 16px;
+  height: 40px;
+  gap: 2px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.gnb-top-link {
+  padding: 6px 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.gnb-top-link:hover {
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+}
+.gnb-top-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  font-weight: 600;
+}

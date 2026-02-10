@@ -1,0 +1,84 @@
+/* ===== Icon Sidebar (GNB Side) ===== */
+.icon-sidebar {
+  background: var(--bg-white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  z-index: 20;
+  overflow: hidden;
+  width: var(--icon-sidebar-width);
+  flex-shrink: 0;
+}
+.gbn-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+}
+.gbn-scroll::-webkit-scrollbar { width: 0; }
+.icon-sidebar .sidebar-icon {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 2px;
+  color: var(--gbn-text);
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  flex-shrink: 0;
+}
+.icon-sidebar .sidebar-icon:hover { color: var(--primary); background: var(--primary-light); }
+.icon-sidebar .sidebar-icon.active {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+.icon-sidebar .sidebar-icon.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  background: var(--primary);
+  border-radius: 0 2px 2px 0;
+}
+.icon-sidebar .sidebar-icon svg { width: 20px; height: 20px; flex-shrink: 0; }
+.icon-sidebar .sidebar-icon .icon-label {
+  font-size: 9px;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60px;
+}
+.gbn-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px solid var(--border-light);
+  width: 100%;
+  flex-shrink: 0;
+}
+.gbn-bottom button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 4px;
+}
+.gbn-bottom button:hover { color: var(--primary); background: var(--primary-light); }

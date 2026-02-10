@@ -1,0 +1,26 @@
+/* ===== Mobile Bottom Tab Bar ===== */
+.mobile-tab-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border);
+  z-index: 30;
+  justify-content: space-around;
+  align-items: center;
+}
+.mobile-tab-bar .tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.mobile-tab-bar .tab-item.active { color: var(--primary); }
+.mobile-tab-bar .tab-item svg { width: 20px; height: 20px; }
