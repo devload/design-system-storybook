@@ -6,6 +6,8 @@ const config = {
   ],
   addons: [
     '@storybook/addon-docs',
+    '@storybook/addon-a11y',
+    '@storybook/addon-designs',
     '@chromatic-com/storybook',
   ],
   framework: '@storybook/html-vite',

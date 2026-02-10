@@ -8,7 +8,13 @@ import { createDesktopTopLayout } from '../layouts/DesktopTop.js';
 
 export default {
   title: 'Pages/UT01 업무리스트',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
+  },
 };
 
 /** UT01 GNB TOP - 상단 가로 네비게이션 + 업무 리스트 + 상세 */

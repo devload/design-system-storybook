@@ -9,6 +9,10 @@ export default {
     return wrap;
   },
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '진행 단계 표시 컴포넌트. 업무 진행상태 탭에서 접수→검토→처리→완료 단계를 시각적으로 표현합니다.',

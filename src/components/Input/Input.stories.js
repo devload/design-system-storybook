@@ -1,8 +1,18 @@
 import { createInput } from './Input.js';
+import { action } from 'storybook/actions';
+import { within, userEvent } from 'storybook/test';
 
 export default {
   title: 'Atoms/Input',
-  render: (args) => createInput(args),
+  render: (args) => {
+    const el = createInput(args);
+    const input = el.querySelector('input');
+    if (input) {
+      input.addEventListener('input', action('onInput'));
+      input.addEventListener('change', action('onChange'));
+    }
+    return el;
+  },
   argTypes: {
     label: { control: 'text' },
     placeholder: { control: 'text' },
@@ -18,6 +28,10 @@ export default {
       description: {
         component: '텍스트 입력 필드. 라벨, 헬퍼 텍스트, 에러 상태를 지원합니다.',
       },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
     },
   },
 };
@@ -60,5 +74,14 @@ export const AllStates = {
     wrap.appendChild(createInput({ label: '비활성', value: '비활성 상태', disabled: true }));
     wrap.appendChild(createInput({ label: '헬퍼', placeholder: '입력', helperText: '도움말 텍스트입니다' }));
     return wrap;
+  },
+};
+
+export const TypeDemo = {
+  args: { label: '입력 테스트', placeholder: '여기에 입력하세요' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+    await userEvent.type(input, '안녕하세요');
   },
 };

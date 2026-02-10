@@ -4,6 +4,10 @@ export default {
   title: 'Atoms/Tabs',
   render: (args) => createTabs(args),
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '탭 네비게이션 컴포넌트. 상세 패널의 요청내용/진행상태/의견/업무이력 전환에 사용됩니다. 카운트 배지를 지원합니다.',

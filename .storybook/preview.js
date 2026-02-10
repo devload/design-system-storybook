@@ -18,6 +18,12 @@ const preview = {
         desktop: { name: 'Desktop', styles: { width: '1440px', height: '900px' } },
       },
     },
+    a11y: {
+      config: {
+        locale: 'ko',
+      },
+    },
+    actions: { argTypesRegex: '^on[A-Z].*' },
   },
 };
 

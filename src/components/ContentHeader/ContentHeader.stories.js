@@ -2,21 +2,33 @@ import { createContentHeader } from './ContentHeader.js';
 
 export default {
   title: 'Components/ContentHeader',
+  render: (args) => createContentHeader(args),
+  argTypes: {
+    title: { control: 'text' },
+    current: { control: 'number' },
+    total: { control: 'number' },
+    showReload: { control: 'boolean' },
+  },
   parameters: {
     docs: {
       description: {
         component: '콘텐츠 영역 상단 헤더 — 제목, 카운터, 새로고침 버튼을 포함합니다.',
       },
     },
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
   },
 };
 
 export const Default = {
-  render: () => createContentHeader({ title: '진행중인 요청업무', current: 8, total: 450 }),
+  args: { title: '진행중인 요청업무', current: 8, total: 450 },
 };
 
 export const WithoutReload = {
-  render: () => createContentHeader({ title: '완료된 요청업무', current: 15, total: 120, showReload: false }),
+  args: { title: '완료된 요청업무', current: 15, total: 120, showReload: false },
 };
 
 export const AllVariants = {

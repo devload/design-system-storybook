@@ -25,6 +25,10 @@ export default {
     variant: { control: 'select', options: ['default', 'light', 'dark'] },
   },
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '구분선 컴포넌트. 수평/수직 방향과 색상 변형을 지원합니다. 툴바 내 버튼 그룹 분리, 섹션 구분에 사용됩니다.',

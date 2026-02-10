@@ -7,7 +7,13 @@ import { createDesktopTopLayout } from '../layouts/DesktopTop.js';
 
 export default {
   title: 'Pages/UT02 데이터테이블',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
+  },
 };
 
 /** UT02 GNB TOP - 상단 가로 네비게이션 + 테이블 */

@@ -9,6 +9,10 @@ export default {
     return wrap;
   },
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '타임라인 컴포넌트. 업무 이력 표시에 사용됩니다. 각 아이템은 채워진/빈 도트, 텍스트, 날짜로 구성됩니다.',

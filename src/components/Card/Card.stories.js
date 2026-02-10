@@ -3,6 +3,10 @@ import { createCard, createCommentCard } from './Card.js';
 export default {
   title: 'Atoms/Card',
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '카드 컴포넌트. 콘텐츠를 감싸는 컨테이너 역할을 합니다. 의견 카드(CommentCard) 변형을 포함합니다.',

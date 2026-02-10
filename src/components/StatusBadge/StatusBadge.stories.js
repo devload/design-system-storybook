@@ -1,19 +1,31 @@
 import { createStatusBadge } from './StatusBadge.js';
 
 export default {
-  title: 'Components/StatusBadge',
+  title: 'Atoms/StatusBadge',
+  render: (args) => createStatusBadge(args),
+  argTypes: {
+    label: { control: 'text' },
+    status: { control: 'select', options: ['progress', 'hold', 'complete'] },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
+  },
 };
 
 export const Progress = {
-  render: () => createStatusBadge({ label: '진행중', status: 'progress' }),
+  args: { label: '진행중', status: 'progress' },
 };
 
 export const Hold = {
-  render: () => createStatusBadge({ label: '보류', status: 'hold' }),
+  args: { label: '보류', status: 'hold' },
 };
 
 export const Complete = {
-  render: () => createStatusBadge({ label: '완료', status: 'complete' }),
+  args: { label: '완료', status: 'complete' },
 };
 
 export const AllStatusBadges = {

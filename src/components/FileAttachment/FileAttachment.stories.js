@@ -1,15 +1,27 @@
 import { createFileAttachment } from './FileAttachment.js';
 
 export default {
-  title: 'Components/FileAttachment',
+  title: 'Atoms/FileAttachment',
+  render: (args) => createFileAttachment(args),
+  argTypes: {
+    fileName: { control: 'text' },
+    fileSize: { control: 'text' },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
+  },
 };
 
 export const Basic = {
-  render: () => createFileAttachment({ fileName: '업무보고서.pdf', fileSize: '2.3MB' }),
+  args: { fileName: '업무보고서.pdf', fileSize: '2.3MB' },
 };
 
 export const WithoutSize = {
-  render: () => createFileAttachment({ fileName: '첨부파일.xlsx' }),
+  args: { fileName: '첨부파일.xlsx' },
 };
 
 export const MultipleFiles = {

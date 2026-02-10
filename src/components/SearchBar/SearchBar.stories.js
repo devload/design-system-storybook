@@ -16,6 +16,10 @@ export default {
     placeholder: { control: 'text' },
   },
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '검색바 컴포넌트. 헤더(다크) 및 콘텐츠 영역(라이트) 두 가지 변형을 지원합니다. 분류 셀렉트 포함 여부를 선택할 수 있습니다.',

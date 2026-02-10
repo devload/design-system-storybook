@@ -1,3 +1,4 @@
+import { action } from 'storybook/actions';
 import { createMenuGridItem } from './MenuGridItem.js';
 
 const sampleIcons = {
@@ -9,22 +10,34 @@ const sampleIcons = {
 
 export default {
   title: 'Components/MenuGridItem',
+  render: (args) => {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'background:#2A3046;padding:24px;display:inline-block;border-radius:8px';
+    const el = createMenuGridItem(args);
+    el.addEventListener('click', action('onClick'));
+    wrap.appendChild(el);
+    return wrap;
+  },
+  argTypes: {
+    label: { control: 'text' },
+    active: { control: 'boolean' },
+  },
   parameters: {
     docs: {
       description: {
         component: '메뉴 그리드 항목 — 전체 메뉴 오버레이에서 아이콘+라벨로 표시되는 메뉴 항목입니다.',
       },
     },
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
   },
 };
 
 export const Default = {
-  render: () => {
-    const wrap = document.createElement('div');
-    wrap.style.cssText = 'background:#2A3046;padding:24px;display:inline-block;border-radius:8px';
-    wrap.appendChild(createMenuGridItem({ label: '메일', icon: sampleIcons.mail }));
-    return wrap;
-  },
+  args: { label: '메일', icon: sampleIcons.mail },
 };
 
 export const GridLayout = {

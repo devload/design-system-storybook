@@ -1,19 +1,30 @@
 import { createDdayBadge } from './DdayBadge.js';
 
 export default {
-  title: 'Components/DdayBadge',
+  title: 'Atoms/DdayBadge',
+  render: (args) => createDdayBadge(args),
+  argTypes: {
+    value: { control: 'text' },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
+  },
 };
 
 export const Dday = {
-  render: () => createDdayBadge({ value: 'D-day' }),
+  args: { value: 'D-day' },
 };
 
 export const D1 = {
-  render: () => createDdayBadge({ value: 'D-1' }),
+  args: { value: 'D-1' },
 };
 
 export const D3 = {
-  render: () => createDdayBadge({ value: 'D-3' }),
+  args: { value: 'D-3' },
 };
 
 export const AllDdayBadges = {

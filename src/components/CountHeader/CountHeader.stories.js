@@ -1,15 +1,29 @@
 import { createCountHeader } from './CountHeader.js';
 
 export default {
-  title: 'Components/CountHeader',
+  title: 'Atoms/CountHeader',
+  render: (args) => createCountHeader(args),
+  argTypes: {
+    current: { control: 'number' },
+    total: { control: 'number' },
+    prefix: { control: 'text' },
+    suffix: { control: 'text' },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
+  },
 };
 
 export const WithTotal = {
-  render: () => createCountHeader({ current: 8, total: 450 }),
+  args: { current: 8, total: 450 },
 };
 
 export const WithoutTotal = {
-  render: () => createCountHeader({ current: 7 }),
+  args: { current: 7 },
 };
 
 export const AllFormats = {

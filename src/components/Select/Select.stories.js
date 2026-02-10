@@ -1,8 +1,16 @@
 import { createSelect } from './Select.js';
+import { action } from 'storybook/actions';
 
 export default {
   title: 'Atoms/Select',
-  render: (args) => createSelect(args),
+  render: (args) => {
+    const el = createSelect(args);
+    const select = el.querySelector('select');
+    if (select) {
+      select.addEventListener('change', action('onChange'));
+    }
+    return el;
+  },
   argTypes: {
     label: { control: 'text' },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
@@ -13,6 +21,10 @@ export default {
       description: {
         component: '드롭다운 셀렉트 컴포넌트. 필터, 정렬 등에 사용됩니다.',
       },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
     },
   },
 };

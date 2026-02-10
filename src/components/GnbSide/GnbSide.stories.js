@@ -14,6 +14,12 @@ export default {
       options: ['menu', 'mail', 'approval', 'docs', 'task', 'calendar', 'contacts'],
     },
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
+  },
 };
 
 export const Default = {

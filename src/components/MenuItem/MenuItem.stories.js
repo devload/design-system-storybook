@@ -1,26 +1,43 @@
+import { action } from 'storybook/actions';
 import { createNavMenuItem } from './MenuItem.js';
 
 export default {
   title: 'Components/NavMenuItem',
+  render: (args) => {
+    const el = createNavMenuItem(args);
+    el.addEventListener('click', action('onClick'));
+    return el;
+  },
+  argTypes: {
+    label: { control: 'text' },
+    count: { control: 'number' },
+    countVariant: { control: 'select', options: ['default', 'danger'] },
+    active: { control: 'boolean' },
+  },
   parameters: {
     docs: {
       description: {
         component: 'LNB 네비게이션 메뉴 항목 — 라벨, 카운트 뱃지, 활성 상태를 지원합니다.',
       },
     },
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
   },
 };
 
 export const Default = {
-  render: () => createNavMenuItem({ label: '진행중인 요청업무', count: 7 }),
+  args: { label: '진행중인 요청업무', count: 7 },
 };
 
 export const Active = {
-  render: () => createNavMenuItem({ label: '진행중인 요청업무', count: 7, active: true }),
+  args: { label: '진행중인 요청업무', count: 7, active: true },
 };
 
 export const DangerCount = {
-  render: () => createNavMenuItem({ label: '거절/보류된 나의요청', count: 8, countVariant: 'danger' }),
+  args: { label: '거절/보류된 나의요청', count: 8, countVariant: 'danger' },
 };
 
 export const WithIcon = {

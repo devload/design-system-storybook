@@ -1,19 +1,32 @@
 import { createFieldRow } from './FieldRow.js';
 
 export default {
-  title: 'Components/FieldRow',
+  title: 'Atoms/FieldRow',
+  render: (args) => createFieldRow(args),
+  argTypes: {
+    label: { control: 'text' },
+    value: { control: 'text' },
+    direction: { control: 'select', options: ['vertical', 'horizontal'] },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
+  },
 };
 
 export const Vertical = {
-  render: () => createFieldRow({ label: '담당자', value: '김생민' }),
+  args: { label: '담당자', value: '김생민' },
 };
 
 export const Horizontal = {
-  render: () => createFieldRow({ label: '담당자', value: '김생민', direction: 'horizontal' }),
+  args: { label: '담당자', value: '김생민', direction: 'horizontal' },
 };
 
 export const WithHtml = {
-  render: () => createFieldRow({ label: '설명', value: '업무 내용을 확인해주세요.<br>자세한 사항은 첨부파일 참고.' }),
+  args: { label: '설명', value: '업무 내용을 확인해주세요.<br>자세한 사항은 첨부파일 참고.' },
 };
 
 export const AllLayouts = {

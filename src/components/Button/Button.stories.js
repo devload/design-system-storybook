@@ -1,8 +1,14 @@
 import { createButton } from './Button.js';
+import { action } from 'storybook/actions';
+import { within, userEvent } from 'storybook/test';
 
 export default {
   title: 'Atoms/Button',
-  render: (args) => createButton(args),
+  render: (args) => {
+    const el = createButton(args);
+    el.addEventListener('click', action('onClick'));
+    return el;
+  },
   argTypes: {
     label: { control: 'text' },
     variant: { control: 'select', options: ['primary', 'secondary', 'ghost', 'danger', 'text'] },
@@ -10,6 +16,12 @@ export default {
     disabled: { control: 'boolean' },
     block: { control: 'boolean' },
     split: { control: 'boolean' },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
   },
 };
 
@@ -91,5 +103,14 @@ export const AllSizes = {
     const sizes = ['xs', 'sm', 'md', 'lg'];
     sizes.forEach(size => wrapper.appendChild(createButton({ label: size.toUpperCase(), size })));
     return wrapper;
+  },
+};
+
+export const ClickDemo = {
+  args: { label: '클릭 테스트', variant: 'primary', size: 'md' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const btn = canvas.getByRole('button');
+    await userEvent.click(btn);
   },
 };

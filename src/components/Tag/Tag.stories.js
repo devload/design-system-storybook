@@ -1,23 +1,35 @@
 import { createTag } from './Tag.js';
 
 export default {
-  title: 'Components/Tag',
+  title: 'Atoms/Tag',
+  render: (args) => createTag(args),
+  argTypes: {
+    label: { control: 'text' },
+    variant: { control: 'select', options: ['urgent', 'security', 'info', 'success'] },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
+  },
 };
 
 export const Urgent = {
-  render: () => createTag({ label: '긴급', variant: 'urgent' }),
+  args: { label: '긴급', variant: 'urgent' },
 };
 
 export const Security = {
-  render: () => createTag({ label: '보안', variant: 'security' }),
+  args: { label: '보안', variant: 'security' },
 };
 
 export const Info = {
-  render: () => createTag({ label: '정보', variant: 'info' }),
+  args: { label: '정보', variant: 'info' },
 };
 
 export const Success = {
-  render: () => createTag({ label: '완료', variant: 'success' }),
+  args: { label: '완료', variant: 'success' },
 };
 
 export const AllTags = {

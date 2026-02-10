@@ -10,6 +10,10 @@ export default {
     showPersonIcon: { control: 'boolean' },
   },
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0', // TODO: 실제 Figma URL로 교체하세요
+    },
     docs: {
       description: {
         component: '사용자 아바타 컴포넌트. 이니셜 또는 아이콘으로 표시합니다. VIP 업무, 의견, 담당자 표시에 사용됩니다.',

@@ -1,3 +1,5 @@
+import { action } from 'storybook/actions';
+import { within, userEvent } from 'storybook/test';
 import { createCollapsibleSection } from './CollapsibleSection.js';
 import { createNavMenuItem } from '../MenuItem/MenuItem.js';
 
@@ -5,23 +7,35 @@ const settingsSvg = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none"
 
 export default {
   title: 'Components/CollapsibleSection',
+  render: (args) => {
+    const body = document.createElement('div');
+    body.appendChild(createNavMenuItem({ label: '대기중인 요청업무', count: 3 }));
+    body.appendChild(createNavMenuItem({ label: '진행중인 요청업무', count: 7, active: true }));
+    body.appendChild(createNavMenuItem({ label: '완료된 요청업무' }));
+    const el = createCollapsibleSection({ ...args, children: body });
+    el.querySelector('.collapsible-section__header').addEventListener('click', action('onToggle'));
+    return el;
+  },
+  argTypes: {
+    title: { control: 'text' },
+    collapsed: { control: 'boolean' },
+  },
   parameters: {
     docs: {
       description: {
         component: '접기/펴기가 가능한 섹션 — LNB에서 업무함, VIP, 보관함 등에 사용됩니다.',
       },
     },
+    design: {
+      type: 'figma',
+      // TODO: 실제 Figma URL로 교체하세요
+      url: 'https://www.figma.com/file/XXXXX/HANDYSOFT-DS?node-id=0:0',
+    },
   },
 };
 
 export const Default = {
-  render: () => {
-    const body = document.createElement('div');
-    body.appendChild(createNavMenuItem({ label: '대기중인 요청업무', count: 3 }));
-    body.appendChild(createNavMenuItem({ label: '진행중인 요청업무', count: 7, active: true }));
-    body.appendChild(createNavMenuItem({ label: '완료된 요청업무' }));
-    return createCollapsibleSection({ title: '받은 업무함', children: body });
-  },
+  args: { title: '받은 업무함' },
 };
 
 export const WithActions = {
@@ -40,10 +54,21 @@ export const WithActions = {
 };
 
 export const Collapsed = {
+  args: { title: '접힌 섹션', collapsed: true },
+};
+
+export const ToggleDemo = {
   render: () => {
     const body = document.createElement('div');
-    body.appendChild(createNavMenuItem({ label: '숨겨진 항목 1' }));
-    body.appendChild(createNavMenuItem({ label: '숨겨진 항목 2' }));
-    return createCollapsibleSection({ title: '접힌 섹션', collapsed: true, children: body });
+    body.appendChild(createNavMenuItem({ label: '대기중인 요청업무', count: 3 }));
+    body.appendChild(createNavMenuItem({ label: '진행중인 요청업무', count: 7 }));
+    return createCollapsibleSection({ title: '받은 업무함', children: body });
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const header = canvas.getByText('받은 업무함');
+    await userEvent.click(header);
+    await new Promise(r => setTimeout(r, 500));
+    await userEvent.click(header);
   },
 };
